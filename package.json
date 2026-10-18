@@ -1,0 +1,23 @@
+{
+  "name": "express-passport-app",
+  "version": "1.0.0",
+  "description": "Express: авторизація через Passport (local, email + пароль), express-session, відновлення пароля; PUG + EJS, MVC",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.19.0",
+    "nodemailer": "^10.1.6",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.4",
+    "serve-favicon": "^2.5.1"
+  }
+}
