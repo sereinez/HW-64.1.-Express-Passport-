@@ -1,24 +1,5 @@
 # express-passport-app
 
-Навчальний сервер на **Node.js + Express.js** з авторизацією через **Passport** (локальна стратегія:
-**email + пароль**), сесіями **`express-session`** та відновленням пароля через email.
-Сторінки генеруються шаблонізаторами **PUG** (авторизація, користувачі, `/protected`) та **EJS** (статті).
-Проєкт побудований за патерном **MVC**; зберігаються favicon, перемикання теми через cookie та CSS з попередніх завдань.
-
-## Можливості
-
-- **Passport + `passport-local`**: вхід за email і паролем, реєстрація, вихід
-- **Сесії** (`express-session`): ідентифікатор сесії лежить у cookie `sid` з прапорцями `httpOnly`, `secure`, `sameSite=lax`
-- **Тривала авторизація**: сесія діє 1 добу, а з прапорцем «Запам'ятати мене» — 30 діб
-- **Захищений маршрут `/protected`**: доступ лише після перевірки сесії мідлваром Passport
-- Паролі зберігаються лише як **bcrypt-хеш**
-- **Відновлення пароля через email** (додатково): одноразовий токен із терміном дії
-- Ролі `admin` / `user`, валідація, права доступу до статей, логування, обробка помилок
-- Сервер слухає порт **3000**
-
-> **Не реалізовано (необов'язковий пункт ТЗ):** вхід через OAuth (Google, Facebook). Для нього потрібно зареєструвати
-> застосунок у кабінеті провайдера й отримати Client ID / Secret. Структура проєкту дозволяє додати
-> ще одну стратегію в `src/auth/passport.js` (наприклад, `passport-google-oauth20`).
 
 ## Встановлення та запуск
 
@@ -227,15 +208,3 @@ curl.exe -c cookies.txt -X POST http://localhost:3000/register -H "Content-Type:
 curl.exe -X POST http://localhost:3000/forgot-password -H "Content-Type: application/json" -d "{\"email\":\"user@example.com\"}"
 ```
 
-## Публікація в Git
-
-```bash
-git init
-git add .
-git commit -m "Add Passport local auth with sessions and password reset"
-git branch -M main
-git remote add origin <URL-вашого-репозиторію>
-git push -u origin main
-```
-
-`node_modules/` винесено в `.gitignore`.
